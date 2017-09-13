@@ -9,7 +9,9 @@ You will need the terraform exe in your path. You can download it [here](https:/
 1. CD into this repository
 2. Run `terraform init`
 3. Run `terraform plan` to verify the current configuration
+   * Use `-out=<path-to-file>` to save the plan (does not create folders)
 4. Run `terraform apply` to provision the infrastructure
+   * `terraform apply <path-to-file>` if you saved the plan
 
 You will need the access key and secret key for an IAM User who effectively has global access to all actions on your AWS account.
 
