@@ -46,7 +46,7 @@ data "aws_iam_policy_document" "s3_bucket_policy" {
     ]
 
     principals {
-      type        = "CanonicalUser"
+      type        = "AWS"
       identifiers = ["${aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn}"]
     }
   }  
