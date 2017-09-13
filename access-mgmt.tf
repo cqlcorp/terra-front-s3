@@ -1,21 +1,21 @@
 resource "aws_iam_user" "s3_admin" {
     name = "${title(var.customer_name)}Admin"
-    force_destroy = true   
+    force_destroy = true
 }
 
 resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
   comment = "Cloudfront Origin Access Identity for ${title(var.customer_name)} s3 access"
 }
 
-//Policy for IAM 
+//Policy for IAM
 data "aws_iam_policy_document" "s3_standard" {
     statement {
         sid = "1"
 
         actions = [
             "s3:ListBucket",
-            "s3:GetBucketLocation"           
-        ]        
+            "s3:GetBucketLocation"
+        ]
 
         resources = [
             "arn:aws:s3:::${var.bucket_name}",
@@ -26,13 +26,13 @@ data "aws_iam_policy_document" "s3_standard" {
         actions = [
             "s3:PutObject",
             "s3:GetObject",
-            "s3:DeleteObject"            
+            "s3:DeleteObject"
         ]
 
         resources = [
             "arn:aws:s3:::${var.bucket_name}/*",
         ]
-    } 
+    }
 }
 
 data "aws_iam_policy_document" "s3_bucket_policy" {
@@ -48,7 +48,7 @@ data "aws_iam_policy_document" "s3_bucket_policy" {
       type        = "AWS"
       identifiers = ["*"]
     }
-  }  
+  }
 }
 
 resource "aws_iam_policy" "s3_admin_policy" {
