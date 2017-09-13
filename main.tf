@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "bucket" {
     }
 
     tags {
-        Customer = "${var.customer_name}"        
+        Customer = "${var.customer_name}"
     }
 }
 
@@ -29,11 +29,11 @@ resource "aws_s3_bucket" "bucket" {
 resource "aws_cloudfront_distribution" "s3_distribution" {
     origin {
         domain_name= "${aws_s3_bucket.bucket.bucket_domain_name}"
-        origin_id = "${title(var.customer_name)}S3Origin"     
+        origin_id = "${title(var.customer_name)}S3Origin"
 
         s3_origin_config {
             origin_access_identity = "${aws_cloudfront_origin_access_identity.origin_access_identity.cloudfront_access_identity_path}"
-        }   
+        }
     }
 
     enabled = true
@@ -47,7 +47,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
         target_origin_id = "${title(var.customer_name)}S3Origin"
 
         forwarded_values {
-            query_string = false            
+            query_string = false
 
             cookies {
                 forward = "none"

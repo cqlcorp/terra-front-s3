@@ -1,7 +1,7 @@
 # terra-front-s3
 Simple terraform script for provisioning an s3 bucket with a cloudfront distribution and associated roles and policies
 
-This script will provision an s3 bucket and an associated cloudfront distribution for that bucket. 
+This script will provision an s3 bucket and an associated cloudfront distribution for that bucket.
 
 #### Setup
 You will need the terraform exe in your path. You can download it [here](https://www.terraform.io/).
