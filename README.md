@@ -11,7 +11,7 @@ You will need the terraform exe in your path. You can download it [here](https:/
 3. Run `terraform plan` to verify the current configuration
 4. Run `terraform apply` to provision the infrastructure
 
-You will need the access key and secret key for an IAM User who effectively has global access to all actions on your AWS accout. I
+You will need the access key and secret key for an IAM User who effectively has global access to all actions on your AWS account.
 
 #### Rollback
 Terraform does not roll back provisioned resources in the event of failure. If the script fails for whatever reason - run `terraform destroy` to remove any resources.
