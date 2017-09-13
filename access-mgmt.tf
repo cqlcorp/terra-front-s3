@@ -13,8 +13,8 @@ data "aws_iam_policy_document" "s3_standard" {
         sid = "1"
 
         actions = [
-            "s3:ListAllMyBuckets",
-            "s3:GetBucketLocation",            
+            "s3:ListBucket",
+            "s3:GetBucketLocation"           
         ]        
 
         resources = [
@@ -26,8 +26,7 @@ data "aws_iam_policy_document" "s3_standard" {
         actions = [
             "s3:PutObject",
             "s3:GetObject",
-            "s3:DeleteObject",
-            "s3:ListBucket"
+            "s3:DeleteObject"            
         ]
 
         resources = [
@@ -47,7 +46,7 @@ data "aws_iam_policy_document" "s3_bucket_policy" {
 
     principals {
       type        = "AWS"
-      identifiers = ["${aws_cloudfront_origin_access_identity.origin_access_identity.iam_arn}"]
+      identifiers = ["*"]
     }
   }  
 }
