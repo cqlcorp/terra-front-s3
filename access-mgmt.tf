@@ -39,7 +39,11 @@ data "aws_iam_policy_document" "s3_bucket_policy" {
   statement {
     sid = "1"
     effect = "Allow"
-    actions   = ["s3:GetObject"]
+    actions   = [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:PutObjectAcl",
+    ]
     resources = [
         "arn:aws:s3:::${var.bucket_name}/*",
     ]
