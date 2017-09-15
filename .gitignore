@@ -6,3 +6,9 @@
 # Module directory
 .terraform/
 
+# Local plans
+plans/
+
+# Auto-pulled variables
+terraform.tfvars
+*.auto.tfvars
